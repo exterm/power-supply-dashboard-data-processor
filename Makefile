@@ -65,6 +65,13 @@ lint: check_poetry ## Lint using flake8 and brunette (use `make format` to do fo
 format: check_poetry ## Format source code with brunette
 	$(POETRY_RUN) brunette --config pyproject.toml power_dashboard
 
+#################################################################################
+# Streamlit App
+#################################################################################
+
+.PHONY: run-app
+run-app: check_poetry ## Run the streamlit app
+	cd power_dashboard && $(POETRY_RUN) streamlit run app.py
 
 #################################################################################
 # Automated documentation generation                                            #
