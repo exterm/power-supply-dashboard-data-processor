@@ -25,7 +25,7 @@ jobs:
       run: poetry install --no-dev
 
     - name: Generate requirements.txt
-      run: poetry export -f requirements.txt --output requirements.txt --without-hashes
+      run: poetry export --output cloud-function/requirements.txt --without-hashes
 
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
@@ -40,3 +40,4 @@ jobs:
         runtime: 'python312'
         project_id: 'eng-interface-432120-c2'
         entry_point: 'main'
+        source_dir: 'cloud-function'
