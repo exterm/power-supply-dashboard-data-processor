@@ -42,5 +42,5 @@ jobs:
         project_id: 'eng-interface-432120-c2'
         entry_point: 'main'
         source_dir: 'cloud-function'
-        secrets: |-
-          SUPABASE_TOKEN=SUPABASE_TOKEN:latest
+        secret_environment_variables: |-
+          SUPABASE_TOKEN=projects/517859937812/secrets/SUPABASE_TOKEN
