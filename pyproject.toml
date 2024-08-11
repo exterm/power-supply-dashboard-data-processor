@@ -10,6 +10,7 @@ functions-framework = "^3.8.1"
 requests = "^2.32.3"
 flask = "^3.0.3"
 poetry-plugin-export = "^1.8.0"
+supabase = "^2.6.0"
 
 
 [build-system]
