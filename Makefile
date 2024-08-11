@@ -2,4 +2,4 @@
 
 run-dev-server:
 	@echo "Running development server..."
-	@poetry run functions-framework --target=main --debug
+	@poetry run functions-framework --source=cloud-function/main.py --target=main --debug
