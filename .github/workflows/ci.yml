@@ -1,0 +1,23 @@
+on: [push]
+jobs:
+  job_id:
+    runs-on: 'ubuntu-latest'
+    permissions:
+      contents: 'read'
+
+    steps:
+    - uses: 'actions/checkout@v4'
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: Install Poetry
+      run: pip install poetry
+
+    - name: Install dependencies with Poetry
+      run: poetry install
+
+    - name: Test utils
+      run: poetry run pytest cloud-function/utils/*.py
