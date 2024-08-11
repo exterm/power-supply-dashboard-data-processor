@@ -11,4 +11,13 @@ SUPABASE_TOKEN = os.getenv('SUPABASE_TOKEN')
 @functions_framework.http
 def main(request: flask.Request) -> flask.typing.ResponseReturnValue:
     db: supabase.Client = supabase.create_client(SUPABASE_URL, SUPABASE_TOKEN)
-    return "OK"
+
+    response = db.table('dashboard-snapshots').select("*").execute()
+
+    print(response.json())
+
+    response = db.table('dashboard-snapshots').insert({
+      'region': 'Ontario',
+      'data': {"carbon_free_share": 0.5},
+    }).execute()
+    return response.json()
