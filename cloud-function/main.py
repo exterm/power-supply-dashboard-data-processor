@@ -31,4 +31,4 @@ def main(request: flask.Request) -> flask.typing.ResponseReturnValue:
     return 'OK'
 
 def is_running_in_gcp():
-    return os.getenv('GCP_PROJECT') is not None
+    return os.getenv('K_SERVICE') is not None
