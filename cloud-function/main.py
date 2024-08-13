@@ -16,7 +16,7 @@ def main(request: flask.Request) -> flask.typing.ResponseReturnValue:
 
     electricity_maps_client = electricity_maps.Client()
 
-    interesting_zones = ['CA-ON', 'US-NE-ISNE']
+    interesting_zones = ['CA-ON', 'US-NE-ISNE', 'US-NW-WACM']
 
     for zone in interesting_zones:
         carbon_intensity = electricity_maps_client.get_carbon_intensity(zone)
