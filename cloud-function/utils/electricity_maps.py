@@ -40,8 +40,6 @@ def test_get_carbon_intensity():
     client = Client()
     response = client.get_carbon_intensity('FR')
 
-    # response format: {'zone': 'FR', 'carbonIntensity': 19, 'datetime': '2024-08-11T21:00:00.000Z', 'updatedAt': '2024-08-11T21:47:37.609Z', 'createdAt': '2024-08-08T21:49:46.129Z', 'emissionFactorType': 'lifecycle', 'isEstimated': True, 'estimationMethod': 'TIME_SLICER_AVERAGE'}
-
     assert response["zone"] == "FR"
     print(response)
     first_entry = response["history"][0]
@@ -54,8 +52,6 @@ def test_get_carbon_intensity():
 def test_get_power_breakdown():
     client = Client()
     response = client.get_power_breakdown('FR')
-
-    # response format: {'zone': 'FR', 'datetime': '2024-08-11T21:00:00.000Z', 'updatedAt': '2024-08-11T20:47:01.873Z', 'createdAt': '2024-08-08T21:49:46.129Z', 'powerConsumptionBreakdown': {'nuclear': 36253, 'geothermal': 0, 'biomass': 683, 'coal': 0, 'wind': 4128, 'solar': 0, 'hydro': 4730, 'gas': 546, 'oil': 104, 'unknown': 0, 'hydro discharge': 881, 'battery discharge': 0}, 'powerProductionBreakdown': {'nuclear': 42290, 'geothermal': None, 'biomass': 797, 'coal': 0, 'wind': 4815, 'solar': 0, 'hydro': 5518, 'gas': 637, 'oil': 122, 'unknown': None, 'hydro discharge': 1028, 'battery discharge': -7}, 'powerImportBreakdown': {'BE': 0, 'ES': 0, 'GB': 0}, 'powerExportBreakdown': {'BE': 2054, 'ES': 2468, 'GB': 3352}, 'fossilFreePercentage': 99, 'renewablePercentage': 22, 'powerConsumptionTotal': 47326, 'powerProductionTotal': 55207, 'powerImportTotal': 0, 'powerExportTotal': 7874, 'isEstimated': True, 'estimationMethod': 'TIME_SLICER_AVERAGE'}
 
     assert response["zone"] == "FR"
     first_entry = response["history"][0]
