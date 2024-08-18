@@ -1,10 +1,9 @@
 import logging
-import os
-from typing import Optional
 
 import requests
 
 ELECTRICITYMAPS_BASE_URL = "https://api.electricitymap.org/v3"
+
 
 class Client:
     def __init__(self):
@@ -28,7 +27,9 @@ class Client:
             self.logger.error(f"Request failed with status code: {response.status_code}")
             raise requests.exceptions.HTTPError("Response: " + response.text)
 
+
 # tests
+
 
 def test_get_zones():
     client = Client()
@@ -36,9 +37,10 @@ def test_get_zones():
 
     assert response["AD"]["zoneName"] == "Andorra"
 
+
 def test_get_carbon_intensity():
     client = Client()
-    response = client.get_carbon_intensity('FR')
+    response = client.get_carbon_intensity("FR")
 
     assert response["zone"] == "FR"
     print(response)
@@ -51,7 +53,7 @@ def test_get_carbon_intensity():
 
 def test_get_power_breakdown():
     client = Client()
-    response = client.get_power_breakdown('FR')
+    response = client.get_power_breakdown("FR")
 
     assert response["zone"] == "FR"
     first_entry = response["history"][0]
@@ -62,5 +64,3 @@ def test_get_power_breakdown():
     assert isinstance(first_entry["fossilFreePercentage"], int)
     assert isinstance(first_entry["renewablePercentage"], int)
     assert isinstance(first_entry["powerConsumptionTotal"], int)
-
-
