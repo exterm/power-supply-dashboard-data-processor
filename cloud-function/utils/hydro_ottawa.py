@@ -72,7 +72,7 @@ class Client:
 
     if response.status_code == 200:
       pricing_data = response.json()
-      tiered_pricing_data = pricing_data["tieredRates"]
+      tiered_pricing_data = pricing_data["tieredRates"][0]
     else:
       raise Exception(f"Failed to obtain pricing data: {response.status_code}\n{response.text}")
 
