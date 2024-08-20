@@ -5,7 +5,7 @@ import functions_framework
 
 import supabase
 
-from utils import electricity_maps, hydro_ottawa
+from utils import electricity_maps, hydro_ottawa, dashboard
 
 SUPABASE_URL = "https://zsfmcbykdoviifsoauxs.supabase.co"
 SUPABASE_TOKEN = os.getenv("SUPABASE_TOKEN")
@@ -37,6 +37,8 @@ def main(request: flask.Request) -> flask.typing.ResponseReturnValue:
       }
     ).execute()
 
+    dashboard.precalculate(db, zone, not is_running_in_gcp())
+
   philip_utility_client = hydro_ottawa.Client(PHILIP_UTILITY_USERNAME, PHILIP_UTILITY_PASSWORD)
 
   db.table("private-utility-datapoints").insert(
@@ -46,5 +48,5 @@ def main(request: flask.Request) -> flask.typing.ResponseReturnValue:
   return "OK"
 
 
-def is_running_in_gcp():
+def is_running_in_gcp() -> bool:
   return os.getenv("K_SERVICE") is not None
