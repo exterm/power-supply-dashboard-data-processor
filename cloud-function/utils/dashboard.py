@@ -6,7 +6,7 @@ def precalculate(db: supabase.Client, zone: str, testing: bool):
     # each row in the table has a UTC created_at timestamp
     seven_days_ago = datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=7)
     response = db.table("electricitymaps-hourly").select("carbon_intensity_raw,power_breakdown_raw,created_at")\
-      .eq("zone", zone).gte("created_at", seven_days_ago).neq("testing", True).order("created_at", "asc").execute()
+      .eq("zone", zone).gte("created_at", seven_days_ago).neq("testing", True).order("created_at", desc=False).execute()
 
     data = response.data
 
