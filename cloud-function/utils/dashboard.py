@@ -2,9 +2,9 @@ import supabase
 import datetime
 
 def precalculate(db: supabase.Client, zone: str, testing: bool):
-    seven_days_ago = datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=4)
+    start = datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=7)
     response = db.table("electricitymaps-hourly").select("carbon_intensity_raw,power_breakdown_raw,created_at")\
-      .eq("zone", zone).gte("created_at", seven_days_ago).neq("testing", True).order("created_at", desc=False).execute()
+      .eq("zone", zone).gte("created_at", start).neq("testing", True).order("created_at", desc=False).execute()
 
     data = response.data
 
@@ -22,8 +22,6 @@ def precalculate(db: supabase.Client, zone: str, testing: bool):
 def extract_history(data, column, key):
     # Filter out duplicate rows for each hour and build the 7-day history
     history = []
-
-
 
     for row in data:
         history.append(row[column]["history"][0])
