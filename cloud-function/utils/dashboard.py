@@ -2,9 +2,7 @@ import supabase
 import datetime
 
 def precalculate(db: supabase.Client, zone: str, testing: bool):
-    # fetch data for the last 7 days (UTC) of carbon intensity from the supabase database
-    # each row in the table has a UTC created_at timestamp
-    seven_days_ago = datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=7)
+    seven_days_ago = datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=4)
     response = db.table("electricitymaps-hourly").select("carbon_intensity_raw,power_breakdown_raw,created_at")\
       .eq("zone", zone).gte("created_at", seven_days_ago).neq("testing", True).order("created_at", desc=False).execute()
 
