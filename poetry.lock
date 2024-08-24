@@ -209,17 +209,17 @@ files = [
 
 [[package]]
 name = "boto3"
-version = "1.35.2"
+version = "1.35.5"
 description = "The AWS SDK for Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "boto3-1.35.2-py3-none-any.whl", hash = "sha256:c2f0837a259002489e59d1c30008791e3b3bb59e30e48c64e1d2d270147a4549"},
-    {file = "boto3-1.35.2.tar.gz", hash = "sha256:cbf197ce28f04bc1ffa1db0aa26a1903d9bfa57a490f70537932e84367cdd15b"},
+    {file = "boto3-1.35.5-py3-none-any.whl", hash = "sha256:2cef3aa476181395c260f4b6e6c5565e5a3022a874fb6b579d8e6b169f94e0b3"},
+    {file = "boto3-1.35.5.tar.gz", hash = "sha256:5724ddeda8e18c7614c20a09c20159ed87ff7439755cf5e250a1a3feaf9afb7e"},
 ]
 
 [package.dependencies]
-botocore = ">=1.35.2,<1.36.0"
+botocore = ">=1.35.5,<1.36.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.10.0,<0.11.0"
 
@@ -228,13 +228,13 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "botocore"
-version = "1.35.2"
+version = "1.35.5"
 description = "Low-level, data-driven core of boto 3."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "botocore-1.35.2-py3-none-any.whl", hash = "sha256:92b168d8be79055bb25754aa34d699866d8aa66abc69f8ce99b0c191bd9c6e70"},
-    {file = "botocore-1.35.2.tar.gz", hash = "sha256:96c8eb6f0baed623a1b57ca9f24cb21d5508872cf0dfebb55527a85b6dbc76ba"},
+    {file = "botocore-1.35.5-py3-none-any.whl", hash = "sha256:8116b72c7ae845c195146e437e2afd9d17538a37b3f3548dcf67c12c86ba0742"},
+    {file = "botocore-1.35.5.tar.gz", hash = "sha256:3a0086c7124cb3b0d9f98563d00ffd14a942c3f9e731d8d1ccf0d3a1ac7ed884"},
 ]
 
 [package.dependencies]
@@ -1010,13 +1010,13 @@ files = [
 
 [[package]]
 name = "idna"
-version = "3.7"
+version = "3.8"
 description = "Internationalized Domain Names in Applications (IDNA)"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 files = [
-    {file = "idna-3.7-py3-none-any.whl", hash = "sha256:82fee1fc78add43492d3a1898bfa6d8a904cc97d8427f683ed8e798d07761aa0"},
-    {file = "idna-3.7.tar.gz", hash = "sha256:028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"},
+    {file = "idna-3.8-py3-none-any.whl", hash = "sha256:050b4e5baadcd44d760cedbd2b8e639f2ff89bbc7a5730fcc662954303377aac"},
+    {file = "idna-3.8.tar.gz", hash = "sha256:d838c2c0ed6fced7693d5e8ab8e734d5f8fda53a039c0164afb0b82e771e3603"},
 ]
 
 [[package]]
@@ -1512,13 +1512,13 @@ poetry-core = ">=1.7.0,<3.0.0"
 
 [[package]]
 name = "postgrest"
-version = "0.16.10"
+version = "0.16.11"
 description = "PostgREST client for Python. This library provides an ORM interface to PostgREST."
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "postgrest-0.16.10-py3-none-any.whl", hash = "sha256:71a9d31a834488ab5f42e6b7a83ab7fbd941f8ac20c3b28d8aa72201cf826aca"},
-    {file = "postgrest-0.16.10.tar.gz", hash = "sha256:5518bf65ad5439f91d2019a25d51d9563ad7cdd8b5c71823559dd1b0e8d9e7a2"},
+    {file = "postgrest-0.16.11-py3-none-any.whl", hash = "sha256:22fb6b817ace1f68aa648fd4ce0f56d2786c9260fa4ed2cb9046191231a682b8"},
+    {file = "postgrest-0.16.11.tar.gz", hash = "sha256:10af51b4c39e288ad7df2db92d6a61fb3c4683131b40561f473e3de116e83fa5"},
 ]
 
 [package.dependencies]
@@ -1902,13 +1902,13 @@ full = ["numpy"]
 
 [[package]]
 name = "realtime"
-version = "2.0.1"
+version = "2.0.2"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "realtime-2.0.1-py3-none-any.whl", hash = "sha256:13bd2796cd31d1cdf6c08f01891102db3379c12d5854b712229163bc9e6a8942"},
-    {file = "realtime-2.0.1.tar.gz", hash = "sha256:49072e3f80486648a29cc6605a1c8bca98ae0335d464ef998e6a70921e3486fc"},
+    {file = "realtime-2.0.2-py3-none-any.whl", hash = "sha256:2634c915bc38807f2013f21e8bcc4d2f79870dfd81460ddb9393883d0489928a"},
+    {file = "realtime-2.0.2.tar.gz", hash = "sha256:519da9325b3b8102139d51785013d592f6b2403d81fa21d838a0b0234723ed7d"},
 ]
 
 [package.dependencies]
@@ -2051,13 +2051,13 @@ test = ["pylint", "pytest", "pytest-black", "pytest-cov", "pytest-pylint"]
 
 [[package]]
 name = "supabase"
-version = "2.7.2"
+version = "2.7.3"
 description = "Supabase client for Python."
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "supabase-2.7.2-py3-none-any.whl", hash = "sha256:f37a810b88e3c8809a2dd709789e008b6d3ca571c0612bdf62963c4cfb59fc6a"},
-    {file = "supabase-2.7.2.tar.gz", hash = "sha256:6bdd82b7eeb5f9f1aeda8b4683107c15b30ebe767e868f4999b235f3b024efe3"},
+    {file = "supabase-2.7.3-py3-none-any.whl", hash = "sha256:b8643e8b097915af5472248a2df9612d919909e7c85aba55398275a40f549612"},
+    {file = "supabase-2.7.3.tar.gz", hash = "sha256:8ef00299c2de139ba4faee7c9fef626af4901f93dec0678bd8530d26051d8a6f"},
 ]
 
 [package.dependencies]
@@ -2293,13 +2293,13 @@ files = [
 
 [[package]]
 name = "werkzeug"
-version = "3.0.3"
+version = "3.0.4"
 description = "The comprehensive WSGI web application library."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "werkzeug-3.0.3-py3-none-any.whl", hash = "sha256:fc9645dc43e03e4d630d23143a04a7f947a9a3b5727cd535fdfe155a17cc48c8"},
-    {file = "werkzeug-3.0.3.tar.gz", hash = "sha256:097e5bfda9f0aba8da6b8545146def481d06aa7d3266e7448e2cccf67dd8bd18"},
+    {file = "werkzeug-3.0.4-py3-none-any.whl", hash = "sha256:02c9eb92b7d6c06f31a782811505d2157837cea66aaede3e217c7c27c039476c"},
+    {file = "werkzeug-3.0.4.tar.gz", hash = "sha256:34f2371506b250df4d4f84bfe7b0921e4762525762bbd936614909fe25cd7306"},
 ]
 
 [package.dependencies]
