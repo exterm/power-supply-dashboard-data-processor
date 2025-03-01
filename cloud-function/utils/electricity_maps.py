@@ -1,13 +1,14 @@
 import logging
-
+import os
 import requests
 
 ELECTRICITYMAPS_BASE_URL = "https://api.electricitymap.org/v3"
 
 
 class Client:
-    def __init__(self):
+    def __init__(self, token: str):
         self.logger = logging.getLogger(__name__)
+        self.token = token
 
     def get_zones(self) -> dict:
         return self._make_request(f"{ELECTRICITYMAPS_BASE_URL}/zones")
@@ -19,7 +20,7 @@ class Client:
         return self._make_request(f"{ELECTRICITYMAPS_BASE_URL}/power-breakdown/history?zone={zone}")
 
     def _make_request(self, url: str) -> dict:
-        response = requests.get(url)
+        response = requests.get(url, headers={"auth-token": self.token})
 
         if response.status_code == 200:
             return response.json()
@@ -32,14 +33,14 @@ class Client:
 
 
 def test_get_zones():
-    client = Client()
+    client = Client(os.getenv("ELECTRICITYMAPS_TOKEN"))
     response = client.get_zones()
 
     assert response["AD"]["zoneName"] == "Andorra"
 
 
 def test_get_carbon_intensity():
-    client = Client()
+    client = Client(os.getenv("ELECTRICITYMAPS_TOKEN"))
     response = client.get_carbon_intensity("FR")
 
     assert response["zone"] == "FR"
@@ -52,7 +53,7 @@ def test_get_carbon_intensity():
 
 
 def test_get_power_breakdown():
-    client = Client()
+    client = Client(os.getenv("ELECTRICITYMAPS_TOKEN"))
     response = client.get_power_breakdown("FR")
 
     assert response["zone"] == "FR"

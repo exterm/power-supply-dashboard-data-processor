@@ -11,9 +11,10 @@ SUPABASE_URL = "https://zsfmcbykdoviifsoauxs.supabase.co"
 SUPABASE_TOKEN = os.getenv("SUPABASE_TOKEN")
 PHILIP_UTILITY_USERNAME = os.getenv("PHILIP_UTILITY_USERNAME")
 PHILIP_UTILITY_PASSWORD = os.getenv("PHILIP_UTILITY_PASSWORD")
-if not SUPABASE_TOKEN or not PHILIP_UTILITY_USERNAME or not PHILIP_UTILITY_PASSWORD:
+ELECTRICITYMAPS_TOKEN = os.getenv("ELECTRICITYMAPS_TOKEN")
+if not SUPABASE_TOKEN or not PHILIP_UTILITY_USERNAME or not PHILIP_UTILITY_PASSWORD or not ELECTRICITYMAPS_TOKEN:
   raise Exception(
-    "SUPABASE_TOKEN, PHILIP_UTILITY_USERNAME, and PHILIP_UTILITY_PASSWORD must be set as environment variables"
+    "SUPABASE_TOKEN, PHILIP_UTILITY_USERNAME, PHILIP_UTILITY_PASSWORD, and ELECTRICITYMAPS_TOKEN must be set as environment variables"
   )
 
 
@@ -21,7 +22,7 @@ if not SUPABASE_TOKEN or not PHILIP_UTILITY_USERNAME or not PHILIP_UTILITY_PASSW
 def main(request: flask.Request) -> flask.typing.ResponseReturnValue:
   db: supabase.Client = supabase.create_client(SUPABASE_URL, SUPABASE_TOKEN)
 
-  electricity_maps_client = electricity_maps.Client()
+  electricity_maps_client = electricity_maps.Client(ELECTRICITYMAPS_TOKEN)
 
   interesting_zones = ["CA-ON", "US-NE-ISNE", "US-NW-WACM"]
 
