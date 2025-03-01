@@ -8,6 +8,8 @@ def precalculate(db: supabase.Client, zone: str, testing: bool):
 
     data = response.data
 
+    # drop rows older than two months to save space
+    db.table("dashboard-snapshots").delete().gte("created_at", datetime.datetime.now(datetime.UTC) - datetime.timedelta(months=2)).execute()
     db.table("dashboard-snapshots").insert(
       {
         "zone": zone,
