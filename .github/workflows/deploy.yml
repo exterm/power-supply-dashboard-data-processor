@@ -26,7 +26,7 @@ jobs:
       run: poetry install --without dev
 
     - name: Generate requirements.txt
-      run: poetry pip freeze > cloud-function/requirements.txt
+      run: poetry run pip freeze > cloud-function/requirements.txt
 
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
