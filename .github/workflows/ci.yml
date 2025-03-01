@@ -21,3 +21,5 @@ jobs:
 
     - name: Test utils
       run: poetry run pytest cloud-function/utils/*.py
+      env:
+        ELECTRICITYMAPS_TOKEN: ${{ secrets.ELECTRICITYMAPS_TOKEN }}
