@@ -46,3 +46,4 @@ jobs:
           SUPABASE_TOKEN=projects/517859937812/secrets/SUPABASE_TOKEN
           PHILIP_UTILITY_USERNAME=projects/517859937812/secrets/philip-utility-username
           PHILIP_UTILITY_PASSWORD=projects/517859937812/secrets/philip-utility-password
+          ELECTRICITYMAPS_TOKEN=projects/517859937812/secrets/ELECTRICITYMAPS_TOKEN
