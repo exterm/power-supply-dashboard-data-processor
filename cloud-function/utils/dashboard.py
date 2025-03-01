@@ -2,14 +2,14 @@ import supabase
 import datetime
 
 def precalculate(db: supabase.Client, zone: str, testing: bool):
-    start = datetime.datetime.now(datetime.UTC) - datetime.timedelta(days=7)
+    start = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=7)
     response = db.table("electricitymaps-hourly").select("carbon_intensity_raw,power_breakdown_raw,created_at")\
       .eq("zone", zone).gte("created_at", start).neq("testing", True).order("created_at", desc=False).execute()
 
     data = response.data
 
     # drop rows older than two months to save space
-    db.table("dashboard-snapshots").delete().gte("created_at", datetime.datetime.now(datetime.UTC) - datetime.timedelta(months=2)).execute()
+    db.table("dashboard-snapshots").delete().lt("created_at", datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=60)).execute()
     db.table("dashboard-snapshots").insert(
       {
         "zone": zone,

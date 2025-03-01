@@ -27,7 +27,7 @@ def main(request: flask.Request) -> flask.typing.ResponseReturnValue:
 
   interesting_zones = ["CA-ON", "US-NE-ISNE", "US-NW-WACM"]
 
-  db.table("electricitymaps-hourly").delete().gte("created_at", datetime.datetime.now(datetime.UTC) - datetime.timedelta(months=2)).execute()
+  db.table("electricitymaps-hourly").delete().lt("created_at", datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=60)).execute()
   for zone in interesting_zones:
     carbon_intensity = electricity_maps_client.get_carbon_intensity(zone)
     power_breakdown = electricity_maps_client.get_power_breakdown(zone)
@@ -44,7 +44,7 @@ def main(request: flask.Request) -> flask.typing.ResponseReturnValue:
 
   philip_utility_client = hydro_ottawa.Client(PHILIP_UTILITY_USERNAME, PHILIP_UTILITY_PASSWORD)
 
-  db.table("private-utility-datapoints").delete().gte("created_at", datetime.datetime.now(datetime.UTC) - datetime.timedelta(months=2)).execute()
+  db.table("private-utility-datapoints").delete().lt("created_at", datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=60)).execute()
   db.table("private-utility-datapoints").insert(
     {"household": "Philip's Place", "data": philip_utility_client.get_data(), "testing": not is_running_in_gcp()}
   ).execute()
